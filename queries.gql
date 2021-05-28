@@ -1,0 +1,12 @@
+query GetBlogPost($id: ID!) {
+  blogPost(id: $id) {
+    id
+    title
+    description
+    author {
+      id
+      name
+    }
+    createdOn
+  }
+}

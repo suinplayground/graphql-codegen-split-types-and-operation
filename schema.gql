@@ -1,0 +1,32 @@
+scalar DateTime
+
+type BlogPost {
+  id: ID!
+  title: String!
+  description: String
+  body: String!
+  author: Author!
+  createdOn: DateTime!
+}
+
+type Author {
+  id: ID!
+  name: String!
+  email: String!
+}
+
+type Query {
+  allBlogPosts: [BlogPost!]!
+  blogPost(id: ID!): BlogPost
+}
+
+type Mutation {
+  createBlogPost(input: CreateBlogPostInput): BlogPost
+}
+
+input CreateBlogPostInput {
+  title: String!
+  description: String
+  body: String!
+  authorId: ID!
+}

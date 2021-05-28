@@ -1,0 +1,28 @@
+overwrite: true
+schema: "./schema.gql"
+documents:
+  - queries.gql
+generates:
+  types.ts:
+    plugins:
+      - typescript
+    config:
+      avoidOptionals: true
+      disableDescriptions: true
+      immutableTypes: true
+      scalars:
+        DateTime: Date
+      skipTypename: true
+    hooks:
+      afterOneFileWrite:
+        - prettier --write
+
+  operations.ts:
+    preset: import-types
+    presetConfig:
+      typesPath: ./types
+    plugins:
+      - typescript-operations
+    hooks:
+      afterOneFileWrite:
+        - prettier --write
