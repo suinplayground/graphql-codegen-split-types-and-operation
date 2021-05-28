@@ -3,20 +3,18 @@ schema: "./schema.gql"
 documents:
   - queries.gql
 generates:
+  # スキーマの型定義
   types.ts:
     plugins:
       - typescript
     config:
-      avoidOptionals: true
-      disableDescriptions: true
-      immutableTypes: true
       scalars:
         DateTime: Date
-      skipTypename: true
     hooks:
       afterOneFileWrite:
         - prettier --write
 
+  # 操作の型定義
   operations.ts:
     preset: import-types
     presetConfig:

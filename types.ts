@@ -17,38 +17,42 @@ export type Scalars = {
 };
 
 export type Author = {
-  readonly id: Scalars["ID"];
-  readonly name: Scalars["String"];
-  readonly email: Scalars["String"];
+  __typename?: "Author";
+  id: Scalars["ID"];
+  name: Scalars["String"];
+  email: Scalars["String"];
 };
 
 export type BlogPost = {
-  readonly id: Scalars["ID"];
-  readonly title: Scalars["String"];
-  readonly description: Maybe<Scalars["String"]>;
-  readonly body: Scalars["String"];
-  readonly author: Author;
-  readonly createdOn: Scalars["DateTime"];
+  __typename?: "BlogPost";
+  id: Scalars["ID"];
+  title: Scalars["String"];
+  description?: Maybe<Scalars["String"]>;
+  body: Scalars["String"];
+  author: Author;
+  createdOn: Scalars["DateTime"];
 };
 
 export type CreateBlogPostInput = {
-  readonly title: Scalars["String"];
-  readonly description: Maybe<Scalars["String"]>;
-  readonly body: Scalars["String"];
-  readonly authorId: Scalars["ID"];
+  title: Scalars["String"];
+  description?: Maybe<Scalars["String"]>;
+  body: Scalars["String"];
+  authorId: Scalars["ID"];
 };
 
 export type Mutation = {
-  readonly createBlogPost: Maybe<BlogPost>;
+  __typename?: "Mutation";
+  createBlogPost?: Maybe<BlogPost>;
 };
 
 export type MutationCreateBlogPostArgs = {
-  input: Maybe<CreateBlogPostInput>;
+  input?: Maybe<CreateBlogPostInput>;
 };
 
 export type Query = {
-  readonly allBlogPosts: ReadonlyArray<BlogPost>;
-  readonly blogPost: Maybe<BlogPost>;
+  __typename?: "Query";
+  allBlogPosts: Array<BlogPost>;
+  blogPost?: Maybe<BlogPost>;
 };
 
 export type QueryBlogPostArgs = {
